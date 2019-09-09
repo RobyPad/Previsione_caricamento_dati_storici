@@ -44,11 +44,10 @@ public class Partita
 	
 	public Partita() { }
 	
-	public Partita(int id, String idComposto, String nazione, String tipoCompetizione, String turnoCompetizione,
+	public Partita(String idComposto, String nazione, String tipoCompetizione, String turnoCompetizione,
 			String annata, String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta,
 			int goalTrasferta) {
 		super();
-		this.id = id;
 		this.idComposto = idComposto;
 		this.nazione = nazione;
 		this.tipoCompetizione = tipoCompetizione;
@@ -61,8 +60,6 @@ public class Partita
 		this.squadraTrasferta = squadraTrasferta;
 		this.goalTrasferta = goalTrasferta;
 	}
-
-
 
 	public int getId() {
 		return id;
