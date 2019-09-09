@@ -17,6 +17,8 @@ public class Partita
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "id_composto")
+	private String idComposto;
 	@Column(name = "nazione")
 	private String nazione;
 	@Column(name = "tipo_competizione")
@@ -41,11 +43,13 @@ public class Partita
 	
 	
 	public Partita() { }
-
-	public Partita(String nazione, String tipoCompetizione, String turnoCompetizione, String annata, String data,
-			String ora, String squadraCasa, int goalCasa, String squadraTrasferta, int goalTrasferta) 
-	{
+	
+	public Partita(int id, String idComposto, String nazione, String tipoCompetizione, String turnoCompetizione,
+			String annata, String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta,
+			int goalTrasferta) {
 		super();
+		this.id = id;
+		this.idComposto = idComposto;
 		this.nazione = nazione;
 		this.tipoCompetizione = tipoCompetizione;
 		this.turnoCompetizione = turnoCompetizione;
@@ -57,12 +61,20 @@ public class Partita
 		this.squadraTrasferta = squadraTrasferta;
 		this.goalTrasferta = goalTrasferta;
 	}
-	
+
+
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getIdComposto() {
+		return idComposto;
+	}
+	public void setIdComposto(String idComposto) {
+		this.idComposto = idComposto;
 	}
 	public String getNazione() {
 		return nazione;
@@ -124,13 +136,15 @@ public class Partita
 	public void setGoalTrasferta(int goalTrasferta) {
 		this.goalTrasferta = goalTrasferta;
 	}
+
 	@Override
 	public String toString() {
-		return "Partita [id=" + id + ", nazione=" + nazione + ", tipoCompetizione=" + tipoCompetizione
-				+ ", turnoCompetizione=" + turnoCompetizione + ", annata=" + annata + ", data=" + data + ", ora=" + ora
-				+ ", squadraCasa=" + squadraCasa + ", goalCasa=" + goalCasa + ", squadraTrasferta=" + squadraTrasferta
-				+ ", goalTrasferta=" + goalTrasferta + "]";
+		return "Partita [id=" + id + ", idComposto=" + idComposto + ", nazione=" + nazione + ", tipoCompetizione="
+				+ tipoCompetizione + ", turnoCompetizione=" + turnoCompetizione + ", annata=" + annata + ", data="
+				+ data + ", ora=" + ora + ", squadraCasa=" + squadraCasa + ", goalCasa=" + goalCasa
+				+ ", squadraTrasferta=" + squadraTrasferta + ", goalTrasferta=" + goalTrasferta + "]";
 	}
+
 
 	
 	
