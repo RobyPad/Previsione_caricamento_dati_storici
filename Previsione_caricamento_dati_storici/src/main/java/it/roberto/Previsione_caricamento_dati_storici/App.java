@@ -10,6 +10,7 @@ import com.roberto.caricamento.dati.CaricaPartite;
 
 import it.roberto.controller.PartitaController;
 import it.roberto.model.Partita;
+import it.roberto.utils.Campionati;
 
 /**
  * Hello world!
@@ -24,16 +25,13 @@ public class App
 		/*
 		 * Italia serie A 2016/2017
 		 * 
-		 */
-		String url_italia = "https://www.diretta.it/serie-a-2016-2017/";
-		String href_italia = "//a[@href='/serie-a-2016-2017/risultati/']";
-	    
+		 */  
+		List<String> lc = Campionati.getCampionati();
+		List<String> lb = Campionati.getBottoni();
+
 		
-		CaricaPartite o = new CaricaPartite();
-		
-		//o.caricaCampionato(url_francia,href_francia);
-		
-		List<Partita> listaPartite = o.caricaCampionato3(url_italia, href_italia);
+		CaricaPartite o = new CaricaPartite();		
+		List<Partita> listaPartite = o.caricaCampionato4(lc, lb);
         
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("it.roberto.persistence");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -57,4 +55,11 @@ public class App
 
 		System.out.println("Entity saved.");
     }
+    
+    public void eseguiCaricamento()
+    {
+    	
+    }
+    
+    
 }
