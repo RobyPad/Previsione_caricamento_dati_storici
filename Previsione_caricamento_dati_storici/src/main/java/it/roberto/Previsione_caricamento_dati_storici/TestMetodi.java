@@ -1,5 +1,7 @@
 package it.roberto.Previsione_caricamento_dati_storici;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.roberto.caricamento.dati.CaricaPartite;
@@ -12,7 +14,7 @@ public class TestMetodi {
 	public static void main(String[] args) 
 	{
 
-		test_2();
+		test_3();
 		
 	}
 	public static void test_1()
@@ -38,6 +40,22 @@ public class TestMetodi {
 
 		System.out.println(listaPartite);
 		
+	}
+	public static void test_3()
+	{
+		GregorianCalendar gc = new GregorianCalendar();
+
+
+		
+		int anno = gc.get(Calendar.YEAR);
+		int mese = (gc.get(Calendar.MONTH)) + 1 ;
+		int giorno = gc.get(Calendar.DAY_OF_MONTH);
+		
+		System.out.println("Giorno: " + giorno );
+		System.out.println("Mese: " + mese );
+		System.out.println("Anno: " + anno);
+		
+		System.out.println(gc);
 	}
 
 }

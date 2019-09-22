@@ -571,7 +571,7 @@ public class CaricaPartite
 			
 		}
 		
-		
+        driver.close();
 		
 		return listaPartite;	
 

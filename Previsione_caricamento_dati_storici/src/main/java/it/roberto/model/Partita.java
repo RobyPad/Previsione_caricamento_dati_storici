@@ -2,8 +2,6 @@ package it.roberto.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,11 +12,14 @@ import javax.persistence.Table;
 
 public class Partita 
 {
+	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "id_composto")
-	private String idComposto;
+	*/
+	
+	@Id
+	private String id;
 	@Column(name = "nazione")
 	private String nazione;
 	@Column(name = "tipo_competizione")
@@ -44,11 +45,11 @@ public class Partita
 	
 	public Partita() { }
 	
-	public Partita(String idComposto, String nazione, String tipoCompetizione, String turnoCompetizione,
+	public Partita(String id, String nazione, String tipoCompetizione, String turnoCompetizione,
 			String annata, String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta,
 			int goalTrasferta) {
 		super();
-		this.idComposto = idComposto;
+		this.id = id;
 		this.nazione = nazione;
 		this.tipoCompetizione = tipoCompetizione;
 		this.turnoCompetizione = turnoCompetizione;
@@ -61,18 +62,15 @@ public class Partita
 		this.goalTrasferta = goalTrasferta;
 	}
 
-	public int getId() {
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getIdComposto() {
-		return idComposto;
-	}
-	public void setIdComposto(String idComposto) {
-		this.idComposto = idComposto;
-	}
+
 	public String getNazione() {
 		return nazione;
 	}
@@ -136,11 +134,13 @@ public class Partita
 
 	@Override
 	public String toString() {
-		return "Partita [id=" + id + ", idComposto=" + idComposto + ", nazione=" + nazione + ", tipoCompetizione="
-				+ tipoCompetizione + ", turnoCompetizione=" + turnoCompetizione + ", annata=" + annata + ", data="
-				+ data + ", ora=" + ora + ", squadraCasa=" + squadraCasa + ", goalCasa=" + goalCasa
-				+ ", squadraTrasferta=" + squadraTrasferta + ", goalTrasferta=" + goalTrasferta + "]";
+		return "Partita [id=" + id + ", nazione=" + nazione + ", tipoCompetizione=" + tipoCompetizione
+				+ ", turnoCompetizione=" + turnoCompetizione + ", annata=" + annata + ", data=" + data + ", ora=" + ora
+				+ ", squadraCasa=" + squadraCasa + ", goalCasa=" + goalCasa + ", squadraTrasferta=" + squadraTrasferta
+				+ ", goalTrasferta=" + goalTrasferta + "]";
 	}
+
+
 
 
 	
