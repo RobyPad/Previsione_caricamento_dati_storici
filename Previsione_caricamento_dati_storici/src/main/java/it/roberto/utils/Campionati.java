@@ -9,31 +9,71 @@ public class Campionati
 {
 	static String[] listaCampionati = 
 		{
-	//			"https://www.diretta.it/serie-a-"
-				"https://www.diretta.it/calcio/francia/ligue-1-"
-				,"https://www.diretta.it/calcio/spagna/laliga-"
-				,"https://www.diretta.it/calcio/germania/bundesliga-"
-				,"https://www.diretta.it/calcio/inghilterra/premier-league-"
-				,"https://www.diretta.it/calcio/portogallo/primeira-liga-"
+				"https://www.diretta.it/serie-a-"
+		//		,"https://www.diretta.it/calcio/francia/ligue-1-"
+		//		,"https://www.diretta.it/calcio/spagna/laliga-"
+		//		,"https://www.diretta.it/calcio/germania/bundesliga-"
+		//		,"https://www.diretta.it/calcio/inghilterra/premier-league-"
+		//		,"https://www.diretta.it/calcio/portogallo/primeira-liga-"
 		};
 	static String[] listaBottoniCampionati = 
 		{
-		//		"//a[@href='/serie-a"
-				"//a[@href='/calcio/francia/ligue-1"
-				,"//a[@href='/calcio/spagna/laliga"
-				,"//a[@href='/calcio/germania/bundesliga"
-				,"//a[@href='/calcio/inghilterra/premier-league"
-				,"//a[@href='/calcio/portogallo/primeira-liga"
+				"//a[@href='/serie-a"
+		//		,"//a[@href='/calcio/francia/ligue-1"
+		//		,"//a[@href='/calcio/spagna/laliga"
+		//		,"//a[@href='/calcio/germania/bundesliga"
+		//		,"//a[@href='/calcio/inghilterra/premier-league"
+		//		,"//a[@href='/calcio/portogallo/primeira-liga"
 		};
 
-	
-	public static List<String> getCampionati()
+	public static List<String> getCampionati_Attuali()
 	{
 		List<String> listaCampionati_a_CinqueAnni = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
 
 		int anno = gc.get(Calendar.YEAR);
 		int mese = (gc.get(Calendar.MONTH))+1 ;
+		@SuppressWarnings("unused")
+		int giorno = gc.get(Calendar.DAY_OF_MONTH);
+		
+		for(int i= 0; i < listaCampionati.length; i++)
+		{
+			
+			String campionato = listaCampionati[i];
+			String campionatoTemp_0;
+
+			
+			if(mese>5)
+			{
+				campionatoTemp_0 = campionato + anno + "-" + (anno+1);
+
+			}
+			else
+			{
+				campionatoTemp_0 = campionato + (anno-1) + "-" + anno;
+
+			}
+					
+			listaCampionati_a_CinqueAnni.add(campionatoTemp_0);
+			
+		}
+
+		
+		
+		/*
+		 * result example:	"https://www.diretta.it/serie-a-2016-2017/",
+		 */
+		return listaCampionati_a_CinqueAnni;
+	}
+		
+	public static List<String> getCampionati_HISTORY()
+	{
+		List<String> listaCampionati_a_CinqueAnni = new ArrayList<>(); 
+		GregorianCalendar gc = new GregorianCalendar();
+
+		int anno = gc.get(Calendar.YEAR);
+		int mese = (gc.get(Calendar.MONTH))+1 ;
+		@SuppressWarnings("unused")
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
 		
 		/*
@@ -46,7 +86,6 @@ public class Campionati
 		{
 			
 			String campionato = listaCampionati[i];
-			String campionatoTemp_0;
 			String campionatoTemp_1;
 			String campionatoTemp_2;
 			String campionatoTemp_3;
@@ -55,7 +94,6 @@ public class Campionati
 			
 			if(mese>5)
 			{
-				campionatoTemp_0 = campionato + anno + "-" + (anno+1);
 				campionatoTemp_1 = campionato + (anno-1) + "-" + anno;
 				campionatoTemp_2 = campionato + (anno-2) + "-" + (anno-1);
 				campionatoTemp_3 = campionato + (anno-3) + "-" + (anno-2);
@@ -64,7 +102,6 @@ public class Campionati
 			}
 			else
 			{
-				campionatoTemp_0 = campionato + (anno-1) + "-" + anno;
 				campionatoTemp_1 = campionato + (anno-2) + "-" + (anno-1);
 				campionatoTemp_2 = campionato + (anno-3) + "-" + (anno-2);
 				campionatoTemp_3 = campionato + (anno-4) + "-" + (anno-3);
@@ -73,7 +110,6 @@ public class Campionati
 			}
 			
 			
-			listaCampionati_a_CinqueAnni.add(campionatoTemp_0);
 			listaCampionati_a_CinqueAnni.add(campionatoTemp_1);
 			listaCampionati_a_CinqueAnni.add(campionatoTemp_2);
 			listaCampionati_a_CinqueAnni.add(campionatoTemp_3);
@@ -89,13 +125,14 @@ public class Campionati
 		 */
 		return listaCampionati_a_CinqueAnni;
 	}
-	
-	public static List<String> getBottoni()
+
+	public static List<String> getBottoni_Attuali()
 	{
 		List<String> listaBottoni_a_CinqueAnni = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
 		int anno = gc.get(Calendar.YEAR);
 		int mese = (gc.get(Calendar.MONTH))+1 ;
+		@SuppressWarnings("unused")
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
 		
 		/*
@@ -109,6 +146,46 @@ public class Campionati
 			
 			String bottoneCamp = listaBottoniCampionati[i];
 			String bottoneCampTemp_0;
+			
+			if(mese>5)
+			{
+				bottoneCampTemp_0 = bottoneCamp + "/risultati/']";
+			}
+			else
+			{
+				bottoneCampTemp_0 = bottoneCamp + (anno-1) + "-" + anno + "/risultati/']";
+
+			}
+			
+			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_0);
+			
+		}
+		
+		/*
+		 * result example:	"//a[@href='/serie-a-2016-2017/risultati/']",
+		 */
+		return listaBottoni_a_CinqueAnni;
+	}
+			
+	public static List<String> getBottoni_HISTORY()
+	{
+		List<String> listaBottoni_a_CinqueAnni = new ArrayList<>(); 
+		GregorianCalendar gc = new GregorianCalendar();
+		int anno = gc.get(Calendar.YEAR);
+		int mese = (gc.get(Calendar.MONTH))+1 ;
+		@SuppressWarnings("unused")
+		int giorno = gc.get(Calendar.DAY_OF_MONTH);
+		
+		/*
+		System.out.println("Giorno: " + giorno );
+		System.out.println("Mese: " + mese );
+		System.out.println("Anno: " + anno);
+		*/
+		
+		for(int i= 0; i < listaBottoniCampionati.length; i++)
+		{
+			
+			String bottoneCamp = listaBottoniCampionati[i];
 			String bottoneCampTemp_1;
 			String bottoneCampTemp_2;
 			String bottoneCampTemp_3;
@@ -117,7 +194,6 @@ public class Campionati
 			
 			if(mese>5)
 			{
-				bottoneCampTemp_0 = bottoneCamp + "/risultati/']";
 				bottoneCampTemp_1 = bottoneCamp + "-" + (anno-1) + "-" + anno + "/risultati/']";
 				bottoneCampTemp_2 = bottoneCamp + "-" +(anno-2) + "-" + (anno-1) + "/risultati/']";
 				bottoneCampTemp_3 = bottoneCamp + "-" +(anno-3) + "-" + (anno-2) + "/risultati/']";
@@ -126,7 +202,6 @@ public class Campionati
 			}
 			else
 			{
-				bottoneCampTemp_0 = bottoneCamp + (anno-1) + "-" + anno + "/risultati/']";
 				bottoneCampTemp_1 = bottoneCamp +  "-" + (anno-2) + "-" + (anno-1) + "/risultati/']";
 				bottoneCampTemp_2 = bottoneCamp +  "-" + (anno-3) + "-" + (anno-2) + "/risultati/']";
 				bottoneCampTemp_3 = bottoneCamp +  "-" + (anno-4) + "-" + (anno-3) + "/risultati/']";
@@ -135,7 +210,6 @@ public class Campionati
 			}
 			
 			
-			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_0);
 			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_1);
 			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_2);
 			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_3);
@@ -149,5 +223,6 @@ public class Campionati
 		 */
 		return listaBottoni_a_CinqueAnni;
 	}
-	
+
+
 }

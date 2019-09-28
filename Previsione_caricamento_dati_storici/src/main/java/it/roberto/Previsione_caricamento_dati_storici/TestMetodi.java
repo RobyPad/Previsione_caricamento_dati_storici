@@ -4,6 +4,13 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
+
 import com.roberto.caricamento.dati.CaricaPartite;
 
 import it.roberto.model.Partita;
@@ -14,34 +21,48 @@ public class TestMetodi {
 	public static void main(String[] args) 
 	{
 
-		test_3();
+		test_6();
 		
 	}
 	public static void test_1()
 	{
-		List<String> lc = Campionati.getCampionati();
+		List<String> lc = Campionati.getCampionati_Attuali();
 		
 		System.out.println(lc);
 
 		
-		List<String> lb = Campionati.getBottoni();
+		List<String> lb = Campionati.getBottoni_Attuali();
 
 		System.out.println(lb);
 	}
 	
 	public static void test_2()
 	{
-		List<String> lc = Campionati.getCampionati();
-		List<String> lb = Campionati.getBottoni();
+		List<String> lc = Campionati.getCampionati_Attuali();
+		List<String> lb = Campionati.getBottoni_Attuali();
 
 		CaricaPartite o = new CaricaPartite();
 		
-		List<Partita> listaPartite = o.caricaCampionato4(lc, lb);
+		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
 
 		System.out.println(listaPartite);
 		
 	}
+	
 	public static void test_3()
+	{
+		List<String> lc = Campionati.getCampionati_HISTORY();
+		List<String> lb = Campionati.getBottoni_HISTORY();
+
+		CaricaPartite o = new CaricaPartite();
+		
+		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+
+		System.out.println(listaPartite);
+		
+	}
+	
+	public static void test_4()
 	{
 		GregorianCalendar gc = new GregorianCalendar();
 
@@ -57,5 +78,70 @@ public class TestMetodi {
 		
 		System.out.println(gc);
 	}
+	
+	public static void test_5()
+	{
+		new CaricaPartite();
+	}
+	
+	public static void test_6()
+	{
+		//Merge partita
+		
+		Partita partita = new Partita(
+				"2018_03_17_Udinese_Sassuolo", 
+				"Italia", 
+				"Serie A", 
+				"Giornata 29", 
+				"2017/2018", 
+				"17.03.18", 
+				"18:00", 
+				"Udinese", 
+				55, 
+				"Sassuolo", 
+				77,
+				"2"
+				);
+		
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("it.roberto.persistence");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		EntityTransaction tx;
+		
+		// Instantiate a transaction
+		tx = entityManager.getTransaction();
+        tx.begin();
+        
+        System.out.println("Record: " + partita);
 
+		try
+		{
+			if(tx.isActive() == false)
+				tx.begin();
+			
+			entityManager.persist(partita);	
+			tx.commit();
+		}
+		catch(EntityExistsException e1)
+		{
+			if(tx.isActive() == false)
+				tx.begin();
+			entityManager.merge(partita);
+			tx.commit();
+			
+			System.out.println("EntityExistsException " + partita);
+		}
+		catch (PersistenceException e2) 
+		{
+			if(tx.isActive() == false)
+				tx.begin();
+			entityManager.merge(partita);
+			tx.commit();
+			
+			System.out.println("PersistenceException " + partita);
+		}
+
+		
+	}
+	
 }

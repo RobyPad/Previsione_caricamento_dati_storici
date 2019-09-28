@@ -18,25 +18,27 @@ import it.roberto.utils.Campionati;
  * Hello world!
  *
  */
-public class App 
+public class Carica_Campionati_Attuali 
 {
     public static void main( String[] args )
     {
+    	//Attuali
+    	System.out.println("Caricamento campionati attuali");
     	
-		// TODO Auto-generated method stub
-		
-		/*
-		 * Italia serie A 2016/2017
-		 * 
-		 */  
-		List<String> lc = Campionati.getCampionati();
-		List<String> lb = Campionati.getBottoni();
+    	List<String> lc = Campionati.getCampionati_Attuali();
+    	List<String> lb = Campionati.getBottoni_Attuali();	
 
-	    EntityTransaction tx;
-
+    	carica_campionati(lc,lb);
+    }
+    
+   
+    public static void carica_campionati(List<String> lc,List<String> lb)
+    {
+    	
+    	EntityTransaction tx;
 		
 		CaricaPartite o = new CaricaPartite();		
-		List<Partita> listaPartite = o.caricaCampionato4(lc, lb);
+		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
         
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("it.roberto.persistence");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -45,10 +47,9 @@ public class App
 		tx = entityManager.getTransaction();
         tx.begin();
 		
-		int i=1;
 		for (Partita partita : listaPartite) 
 		{
-			System.out.println("Record :" + partita);
+			System.out.println("Record: " + partita);
 
 			try
 			{
@@ -76,21 +77,11 @@ public class App
 				
 				System.out.println("PersistenceException " + partita);
 			}
-			
-			i++;
 		}
 
 		entityManager.close();
-		
-
-		
 
 		System.out.println("Tutti i campionati sono stati salvati");
-    }
-    
-    public void eseguiCaricamento()
-    {
-    	
     }
     
     

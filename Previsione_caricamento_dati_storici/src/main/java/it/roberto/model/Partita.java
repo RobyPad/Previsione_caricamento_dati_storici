@@ -40,14 +40,20 @@ public class Partita
 	private String squadraTrasferta;
 	@Column(name = "goal_trasferta")
 	private int goalTrasferta;
+	@Column(name = "risultato")
+	private String risultato;
+	
 	
 	
 	
 	public Partita() { }
 	
-	public Partita(String id, String nazione, String tipoCompetizione, String turnoCompetizione,
-			String annata, String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta,
-			int goalTrasferta) {
+
+
+
+	public Partita(String id, String nazione, String tipoCompetizione, String turnoCompetizione, String annata,
+			String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta, int goalTrasferta,
+			String risultato) {
 		super();
 		this.id = id;
 		this.nazione = nazione;
@@ -60,6 +66,7 @@ public class Partita
 		this.goalCasa = goalCasa;
 		this.squadraTrasferta = squadraTrasferta;
 		this.goalTrasferta = goalTrasferta;
+		this.risultato = risultato;
 	}
 
 
@@ -131,14 +138,26 @@ public class Partita
 	public void setGoalTrasferta(int goalTrasferta) {
 		this.goalTrasferta = goalTrasferta;
 	}
+	
+	public String getRisultato() {
+		return risultato;
+	}
+	public void setRisultato(String risultato) {
+		this.risultato = risultato;
+	}
+
+
+
 
 	@Override
 	public String toString() {
 		return "Partita [id=" + id + ", nazione=" + nazione + ", tipoCompetizione=" + tipoCompetizione
 				+ ", turnoCompetizione=" + turnoCompetizione + ", annata=" + annata + ", data=" + data + ", ora=" + ora
 				+ ", squadraCasa=" + squadraCasa + ", goalCasa=" + goalCasa + ", squadraTrasferta=" + squadraTrasferta
-				+ ", goalTrasferta=" + goalTrasferta + "]";
+				+ ", goalTrasferta=" + goalTrasferta + ", risultato=" + risultato + "]";
 	}
+
+
 
 
 
