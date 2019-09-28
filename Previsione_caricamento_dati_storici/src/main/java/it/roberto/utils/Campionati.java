@@ -10,20 +10,20 @@ public class Campionati
 	static String[] listaCampionati = 
 		{
 				"https://www.diretta.it/serie-a-"
-		//		,"https://www.diretta.it/calcio/francia/ligue-1-"
-		//		,"https://www.diretta.it/calcio/spagna/laliga-"
-		//		,"https://www.diretta.it/calcio/germania/bundesliga-"
-		//		,"https://www.diretta.it/calcio/inghilterra/premier-league-"
-		//		,"https://www.diretta.it/calcio/portogallo/primeira-liga-"
+				,"https://www.diretta.it/calcio/francia/ligue-1-"
+				,"https://www.diretta.it/calcio/spagna/laliga-"
+				,"https://www.diretta.it/calcio/germania/bundesliga-"
+				,"https://www.diretta.it/calcio/inghilterra/premier-league-"
+				,"https://www.diretta.it/calcio/portogallo/primeira-liga-"
 		};
 	static String[] listaBottoniCampionati = 
 		{
 				"//a[@href='/serie-a"
-		//		,"//a[@href='/calcio/francia/ligue-1"
-		//		,"//a[@href='/calcio/spagna/laliga"
-		//		,"//a[@href='/calcio/germania/bundesliga"
-		//		,"//a[@href='/calcio/inghilterra/premier-league"
-		//		,"//a[@href='/calcio/portogallo/primeira-liga"
+				,"//a[@href='/calcio/francia/ligue-1"
+				,"//a[@href='/calcio/spagna/laliga"
+				,"//a[@href='/calcio/germania/bundesliga"
+				,"//a[@href='/calcio/inghilterra/premier-league"
+				,"//a[@href='/calcio/portogallo/primeira-liga"
 		};
 
 	public static List<String> getCampionati_Attuali()
@@ -224,5 +224,98 @@ public class Campionati
 		return listaBottoni_a_CinqueAnni;
 	}
 
+	
+	public static List<String> getCampionati_MOSTRA_PIU_INCONTRI()
+	{
+		List<String> listaCampionati_a_CinqueAnni = new ArrayList<>(); 
+		GregorianCalendar gc = new GregorianCalendar();
 
+		int anno = gc.get(Calendar.YEAR);
+		int mese = (gc.get(Calendar.MONTH))+1 ;
+		@SuppressWarnings("unused")
+		int giorno = gc.get(Calendar.DAY_OF_MONTH);
+		
+		/*
+		System.out.println("Giorno: " + giorno );
+		System.out.println("Mese: " + mese );
+		System.out.println("Anno: " + anno);
+		*/
+		
+		for(int i= 0; i < listaCampionati.length; i++)
+		{
+			
+			String campionato = listaCampionati[i];
+			String campionatoTemp_1;
+
+			
+			if(mese>5)
+			{
+				campionatoTemp_1 = campionato + (anno-1) + "-" + anno;
+
+			}
+			else
+			{
+				campionatoTemp_1 = campionato + (anno-2) + "-" + (anno-1);
+
+			}
+			
+			
+			listaCampionati_a_CinqueAnni.add(campionatoTemp_1);
+
+			
+		}
+
+		
+		
+		/*
+		 * result example:	"https://www.diretta.it/serie-a-2016-2017/",
+		 */
+		return listaCampionati_a_CinqueAnni;
+	}
+
+	
+	public static List<String> getBottoni_MOSTRA_PIU_INCONTRI()
+	{
+		List<String> listaBottoni_a_CinqueAnni = new ArrayList<>(); 
+		GregorianCalendar gc = new GregorianCalendar();
+		int anno = gc.get(Calendar.YEAR);
+		int mese = (gc.get(Calendar.MONTH))+1 ;
+		@SuppressWarnings("unused")
+		int giorno = gc.get(Calendar.DAY_OF_MONTH);
+		
+		/*
+		System.out.println("Giorno: " + giorno );
+		System.out.println("Mese: " + mese );
+		System.out.println("Anno: " + anno);
+		*/
+		
+		for(int i= 0; i < listaBottoniCampionati.length; i++)
+		{
+			
+			String bottoneCamp = listaBottoniCampionati[i];
+			String bottoneCampTemp_1;
+			
+			if(mese>5)
+			{
+				bottoneCampTemp_1 = bottoneCamp + "-" + (anno-1) + "-" + anno + "/risultati/']";
+
+			}
+			else
+			{
+				bottoneCampTemp_1 = bottoneCamp +  "-" + (anno-2) + "-" + (anno-1) + "/risultati/']";
+
+			}
+			
+			
+			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_1);
+			
+		}
+		
+		/*
+		 * result example:	"//a[@href='/serie-a-2016-2017/risultati/']",
+		 */
+		return listaBottoni_a_CinqueAnni;
+	}
+
+	
 }

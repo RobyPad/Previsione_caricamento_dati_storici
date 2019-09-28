@@ -21,9 +21,13 @@ public class TestMetodi {
 	public static void main(String[] args) 
 	{
 
-		test_6();
+		test_7();
 		
 	}
+	
+	/*
+	 * get lista campionati
+	 */
 	public static void test_1()
 	{
 		List<String> lc = Campionati.getCampionati_Attuali();
@@ -36,6 +40,9 @@ public class TestMetodi {
 		System.out.println(lb);
 	}
 	
+	/*
+	 * get Lista partite campionato Attuale
+	 */
 	public static void test_2()
 	{
 		List<String> lc = Campionati.getCampionati_Attuali();
@@ -49,6 +56,9 @@ public class TestMetodi {
 		
 	}
 	
+	/*
+	 * get Lista partite campionati History
+	 */
 	public static void test_3()
 	{
 		List<String> lc = Campionati.getCampionati_HISTORY();
@@ -62,12 +72,13 @@ public class TestMetodi {
 		
 	}
 	
+	/*
+	 * verifica Calendar
+	 */
 	public static void test_4()
 	{
 		GregorianCalendar gc = new GregorianCalendar();
 
-
-		
 		int anno = gc.get(Calendar.YEAR);
 		int mese = (gc.get(Calendar.MONTH)) + 1 ;
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
@@ -79,11 +90,17 @@ public class TestMetodi {
 		System.out.println(gc);
 	}
 	
+	/*
+	 * verifica lettura file properties
+	 */
 	public static void test_5()
 	{
 		new CaricaPartite();
 	}
 	
+	/*
+	 * verifica Merge record
+	 */
 	public static void test_6()
 	{
 		//Merge partita
@@ -141,6 +158,22 @@ public class TestMetodi {
 			System.out.println("PersistenceException " + partita);
 		}
 
+		
+	}
+	
+	/*
+	 * verifica Bottone "mostra più incontri"
+	 */
+	public static void test_7()
+	{
+		
+    	List<String> lc = Campionati.getCampionati_MOSTRA_PIU_INCONTRI();
+    	List<String> lb = Campionati.getBottoni_MOSTRA_PIU_INCONTRI();
+		
+		CaricaPartite o = new CaricaPartite();		
+		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		
+		System.out.println(listaPartite);
 		
 	}
 	
