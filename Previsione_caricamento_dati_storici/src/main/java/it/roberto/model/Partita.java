@@ -1,5 +1,8 @@
 package it.roberto.model;
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -42,7 +45,8 @@ public class Partita
 	private int goalTrasferta;
 	@Column(name = "risultato")
 	private String risultato;
-	
+	@Column(name = "data_aggiornamento_record")
+	private Date dataAggiornamentoRecord;	
 	
 	
 	
@@ -53,7 +57,7 @@ public class Partita
 
 	public Partita(String id, String nazione, String tipoCompetizione, String turnoCompetizione, String annata,
 			String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta, int goalTrasferta,
-			String risultato) {
+			String risultato, Date dataAggiornamentoRecord) {
 		super();
 		this.id = id;
 		this.nazione = nazione;
@@ -67,7 +71,9 @@ public class Partita
 		this.squadraTrasferta = squadraTrasferta;
 		this.goalTrasferta = goalTrasferta;
 		this.risultato = risultato;
+		this.dataAggiornamentoRecord = dataAggiornamentoRecord;
 	}
+	
 
 
 	public String getId() {
@@ -146,16 +152,24 @@ public class Partita
 		this.risultato = risultato;
 	}
 
-
-
+	public Date getDataAggiornamentoRecord() {
+		return dataAggiornamentoRecord;
+	}
+	public void setDataAggiornamentoRecord(Date dataAggiornamentoRecord) {
+		this.dataAggiornamentoRecord = dataAggiornamentoRecord;
+	}
 
 	@Override
 	public String toString() {
 		return "Partita [id=" + id + ", nazione=" + nazione + ", tipoCompetizione=" + tipoCompetizione
 				+ ", turnoCompetizione=" + turnoCompetizione + ", annata=" + annata + ", data=" + data + ", ora=" + ora
 				+ ", squadraCasa=" + squadraCasa + ", goalCasa=" + goalCasa + ", squadraTrasferta=" + squadraTrasferta
-				+ ", goalTrasferta=" + goalTrasferta + ", risultato=" + risultato + "]";
+				+ ", goalTrasferta=" + goalTrasferta + ", risultato=" + risultato + ", dataAggiornamentoRecord="
+				+ dataAggiornamentoRecord + "]";
 	}
+
+
+
 
 
 

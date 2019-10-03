@@ -1,6 +1,9 @@
 package it.roberto.Previsione_caricamento_dati_storici;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -21,7 +24,7 @@ public class TestMetodi {
 	public static void main(String[] args) 
 	{
 
-		test_7();
+		test_9();
 		
 	}
 	
@@ -103,10 +106,9 @@ public class TestMetodi {
 	 */
 	public static void test_6()
 	{
-		//Merge partita
-		
+		//Merge partita		
 		Partita partita = new Partita(
-				"2018_03_17_Udinese_Sassuolo", 
+				"2021_03_17_Udinese_Sassuolo", 
 				"Italia", 
 				"Serie A", 
 				"Giornata 29", 
@@ -117,7 +119,8 @@ public class TestMetodi {
 				55, 
 				"Sassuolo", 
 				77,
-				"2"
+				"2",
+				new Date()
 				);
 		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("it.roberto.persistence");
@@ -175,6 +178,83 @@ public class TestMetodi {
 		
 		System.out.println(listaPartite);
 		
+	}
+
+	/*
+	 * verifica LISTA Campionati Anno singolo Attuale
+	 */
+	public static void test_8()
+	{
+		
+    	List<String> lc = Campionati.getCampionati_Anno_Singolo_Attuali();
+    	List<String> lb = Campionati.getBottoni_Anno_Singolo_Attuali();
+		
+		System.out.println(lc);
+		System.out.println(lb);
+		
+	}
+	
+	/*
+	 * verifica LISTA Campionati Anno singolo HISTORY
+	 */
+	public static void test_9()
+	{
+		
+    	List<String> lc = Campionati.getCampionati_Anno_Singolo_HISTORY();
+    	List<String> lb = Campionati.getBottoni_Anno_Singolo_HISTORY();
+		
+		System.out.println(lc);
+		System.out.println(lb);
+		
+	}
+	
+	/*
+	 * verifica Campionati Anno singolo Attuale
+	 */
+	public static void test_10()
+	{
+		
+    	List<String> lc = Campionati.getCampionati_Anno_Singolo_Attuali();
+    	List<String> lb = Campionati.getBottoni_Anno_Singolo_Attuali();
+		
+		CaricaPartite o = new CaricaPartite();		
+		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		
+		System.out.println(listaPartite);
+		
+	}
+	
+	/*
+	 * verifica Campionati Anno singolo HISTORY
+	 */
+	public static void test_11()
+	{
+		
+    	List<String> lc = Campionati.getCampionati_Anno_Singolo_HISTORY();
+    	List<String> lb = Campionati.getBottoni_Anno_Singolo_HISTORY();
+		
+		CaricaPartite o = new CaricaPartite();		
+		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		
+		System.out.println(listaPartite);
+		
+	}
+	
+	/*
+	 * Test data
+	 */
+	public static void test_12()
+	{
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		
+		LocalDateTime today = LocalDateTime.now();
+		 
+		System.out.println(formatter.format(today));        //2017-06-04 16:14
+
+		Date data = new Date();
+		
+		System.out.println(data);
 	}
 	
 }

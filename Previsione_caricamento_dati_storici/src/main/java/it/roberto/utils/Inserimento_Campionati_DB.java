@@ -1,4 +1,4 @@
-package it.roberto.Previsione_caricamento_dati_storici;
+package it.roberto.utils;
 
 import java.util.List;
 
@@ -12,26 +12,10 @@ import javax.persistence.PersistenceException;
 import com.roberto.caricamento.dati.CaricaPartite;
 
 import it.roberto.model.Partita;
-import it.roberto.utils.Campionati;
 
-/**
- * Hello world!
- *
- */
-public class Carica_Campionati_Attuali 
+public class Inserimento_Campionati_DB 
 {
-    public static void main( String[] args )
-    {
-    	//Attuali
-    	System.out.println("Caricamento campionati attuali");
-    	
-    	List<String> lc = Campionati.getCampionati_Attuali();
-    	List<String> lb = Campionati.getBottoni_Attuali();	
-
-    	carica_campionati(lc,lb);
-    }
-    
-   
+	
     public static void carica_campionati(List<String> lc,List<String> lb)
     {
     	
@@ -78,11 +62,10 @@ public class Carica_Campionati_Attuali
 				System.out.println("PersistenceException " + partita);
 			}
 		}
-		
+
 		entityManager.close();
 
 		System.out.println("Tutti i campionati sono stati salvati");
     }
-    
     
 }
