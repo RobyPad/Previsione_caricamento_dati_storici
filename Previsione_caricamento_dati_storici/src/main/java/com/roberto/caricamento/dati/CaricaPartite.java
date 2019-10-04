@@ -120,7 +120,7 @@ public class CaricaPartite
 					catch(NoSuchElementException e)
 					{
 						//e.printStackTrace();
-						System.out.println("Refresh pagina terminato");
+						System.out.println("Refresh pagina terminato - campionato: " + campionato);
 						scroolTerminato = true;
 					}			
 				}	
@@ -202,7 +202,7 @@ public class CaricaPartite
 									if(e2.className().contains("event__scores"))
 									{
 										String[] result = e2.text().split(" - ");
-										if(result != null && result.length > 0)
+										if(result != null && result.length > 1)
 										{
 												if(result[0] != "")
 													goalSquadraCasa = result[0];

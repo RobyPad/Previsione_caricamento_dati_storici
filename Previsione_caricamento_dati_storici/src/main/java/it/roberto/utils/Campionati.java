@@ -8,20 +8,19 @@ import java.util.List;
 public class Campionati 
 {
 	static String[] listaCampionati = 
-		{
-				/*
-		// ITALIA			"https://www.diretta.it/serie-a-"
-		// FRANCIA			,"https://www.diretta.it/calcio/francia/ligue-1-"
-		// SPAGNA			,"https://www.diretta.it/calcio/spagna/laliga-"
-		// GERMANIA			,"https://www.diretta.it/calcio/germania/bundesliga-"
-		// INGHILTERRA		,"https://www.diretta.it/calcio/inghilterra/premier-league-"
-		// PORTOGALLO		,"https://www.diretta.it/calcio/portogallo/primeira-liga-"					
+		{	
+							"https://www.diretta.it/serie-a-"
+							,"https://www.diretta.it/calcio/francia/ligue-1-"
+							,"https://www.diretta.it/calcio/spagna/laliga-"
+							,"https://www.diretta.it/calcio/germania/bundesliga-"
+							,"https://www.diretta.it/calcio/inghilterra/premier-league-"
+							,"https://www.diretta.it/calcio/portogallo/primeira-liga-"					
 							,"https://www.diretta.it/calcio/armenia/premier-league-"
 							,"https://www.diretta.it/calcio/azerbaijan/premier-league-"
 							,"https://www.diretta.it/calcio/austria/tipico-bundesliga-"
 							,"https://www.diretta.it/calcio/belgio/jupiler-league-"
 							,"https://www.diretta.it/calcio/bosnia-herzegovina/premier-league-"
-				*/			"https://www.diretta.it/calcio/bulgaria/parva-liga-"
+							,"https://www.diretta.it/calcio/bulgaria/parva-liga-"
 							,"https://www.diretta.it/calcio/cipro/first-division-"
 							,"https://www.diretta.it/calcio/croazia/1-hnl-"
 							,"https://www.diretta.it/calcio/danimarca/superliga-"
@@ -31,7 +30,7 @@ public class Campionati
 							,"https://www.diretta.it/calcio/israele/ligat-ha-al-"
 							,"https://www.diretta.it/calcio/lussemburgo/national-division-"
 							,"https://www.diretta.it/calcio/malta/premier-league-"
-				/*			,"https://www.diretta.it/calcio/polonia/ekstraklasa-"
+							,"https://www.diretta.it/calcio/polonia/ekstraklasa-"
 							,"https://www.diretta.it/calcio/repubblica-ceca/1-liga-"
 							,"https://www.diretta.it/calcio/romania/liga-1-"
 							,"https://www.diretta.it/calcio/russia/premier-league-"
@@ -41,37 +40,36 @@ public class Campionati
 							,"https://www.diretta.it/calcio/svizzera/super-league-"
 							,"https://www.diretta.it/calcio/turchia/super-lig-"
 							,"https://www.diretta.it/calcio/ucraina/premier-league-"
-							,"https://www.diretta.it/calcio/ungheria/otp-bank-liga-"	*/				
+							,"https://www.diretta.it/calcio/ungheria/otp-bank-liga-"					
 		};
 	
 	static String[] listaCampionati_anno_singolo = 
 		{
-						"https://www.diretta.it/calcio/bielorussia/vysshaya-liga-"
-						,"https://www.diretta.it/calcio/estonia/meistriliiga-"
-						,"https://www.diretta.it/calcio/irlanda/premier-division-"
-						,"https://www.diretta.it/calcio/islanda/pepsideild-"
-						,"https://www.diretta.it/calcio/kazakistan/premier-league-"
-						,"https://www.diretta.it/calcio/lettonia/optibet-virsliga-"
-						,"https://www.diretta.it/calcio/lituania/a-lyga-"
-						,"https://www.diretta.it/calcio/norvegia/eliteserien-"
-						,"https://www.diretta.it/calcio/svezia/allsvenskan-"		
+							"https://www.diretta.it/calcio/bielorussia/vysshaya-liga-"
+							,"https://www.diretta.it/calcio/estonia/meistriliiga-"
+							,"https://www.diretta.it/calcio/irlanda/premier-division-"
+							,"https://www.diretta.it/calcio/islanda/pepsideild-"
+							,"https://www.diretta.it/calcio/kazakistan/premier-league-"
+							,"https://www.diretta.it/calcio/lettonia/optibet-virsliga-"
+							,"https://www.diretta.it/calcio/lituania/a-lyga-"
+							,"https://www.diretta.it/calcio/norvegia/eliteserien-"
+							,"https://www.diretta.it/calcio/svezia/allsvenskan-"		
 		};
 	
 	static String[] listaBottoniCampionati = 
-		{
-				/*
-		//ITALIA			"//a[@href='/serie-a"
-		//FRANCIA			,"//a[@href='/calcio/francia/ligue-1"
-		//SPAGNA			,"//a[@href='/calcio/spagna/laliga"
-		//GERMANIA			,"//a[@href='/calcio/germania/bundesliga"
-		//INGHILTERRA		,"//a[@href='/calcio/inghilterra/premier-league"
-		//PORTOGALLO		,"//a[@href='/calcio/portogallo/primeira-liga"	
+		{		
+							"//a[@href='/serie-a"
+							,"//a[@href='/calcio/francia/ligue-1"
+							,"//a[@href='/calcio/spagna/laliga"
+							,"//a[@href='/calcio/germania/bundesliga"
+							,"//a[@href='/calcio/inghilterra/premier-league"
+							,"//a[@href='/calcio/portogallo/primeira-liga"	
 							,"//a[@href='/calcio/armenia/premier-league"
 							,"//a[@href='/calcio/azerbaijan/premier-league"
 							,"//a[@href='/calcio/austria/tipico-bundesliga"
 							,"//a[@href='/calcio/belgio/jupiler-league"
 							,"//a[@href='/calcio/bosnia-herzegovina/premier-league"
-				*/			"//a[@href='/calcio/bulgaria/parva-liga"
+							,"//a[@href='/calcio/bulgaria/parva-liga"
 							,"//a[@href='/calcio/cipro/first-division"
 							,"//a[@href='/calcio/croazia/1-hnl"
 					 		,"//a[@href='/calcio/danimarca/superliga"
@@ -81,7 +79,7 @@ public class Campionati
 							,"//a[@href='/calcio/israele/ligat-ha-al"
 							,"//a[@href='/calcio/lussemburgo/national-division"
 							,"//a[@href='/calcio/malta/premier-league"
-					/*		,"//a[@href='/calcio/polonia/ekstraklasa"
+							,"//a[@href='/calcio/polonia/ekstraklasa"
 							,"//a[@href='/calcio/repubblica-ceca/1-liga"
 							,"//a[@href='/calcio/romania/liga-1"
 							,"//a[@href='/calcio/russia/premier-league"
@@ -91,22 +89,20 @@ public class Campionati
 							,"//a[@href='/calcio/svizzera/super-league"
 							,"//a[@href='/calcio/turchia/super-lig"
 							,"//a[@href='/calcio/ucraina/premier-league"
-							,"//a[@href='/calcio/ungheria/otp-bank-liga"	*/
-							
-
+							,"//a[@href='/calcio/ungheria/otp-bank-liga"						
 		};
 	
 	static String[] listaBottoniCampionati_anno_singolo = 
 		{
-			"//a[@href='/calcio/bielorussia/vysshaya-liga"
-			,"//a[@href='/calcio/estonia/meistriliiga"
-			,"//a[@href='/calcio/irlanda/premier-division"
-			,"//a[@href='/calcio/islanda/pepsideild"
-			,"//a[@href='/calcio/kazakistan/premier-league"
-			,"//a[@href='/calcio/lettonia/optibet-virsliga"
-			,"//a[@href='/calcio/lituania/a-lyga"
-			,"//a[@href='/calcio/norvegia/eliteserien"					
-			,"//a[@href='/calcio/svezia/allsvenskan"	
+							"//a[@href='/calcio/bielorussia/vysshaya-liga"
+							,"//a[@href='/calcio/estonia/meistriliiga"
+							,"//a[@href='/calcio/irlanda/premier-division"
+							,"//a[@href='/calcio/islanda/pepsideild"
+							,"//a[@href='/calcio/kazakistan/premier-league"
+							,"//a[@href='/calcio/lettonia/optibet-virsliga"
+							,"//a[@href='/calcio/lituania/a-lyga"
+							,"//a[@href='/calcio/norvegia/eliteserien"					
+							,"//a[@href='/calcio/svezia/allsvenskan"	
 		};
 
 	public static List<String> getCampionati_Attuali()

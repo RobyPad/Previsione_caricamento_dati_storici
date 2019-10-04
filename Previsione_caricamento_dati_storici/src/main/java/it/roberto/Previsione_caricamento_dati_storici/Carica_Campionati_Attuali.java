@@ -15,11 +15,12 @@ import it.roberto.model.Partita;
 import it.roberto.utils.Campionati;
 
 /**
- * Hello world!
+ * 
  *
  */
 public class Carica_Campionati_Attuali 
 {
+	
     public static void main( String[] args )
     {
     	//Attuali
@@ -31,7 +32,6 @@ public class Carica_Campionati_Attuali
     	carica_campionati(lc,lb);
     }
     
-   
     public static void carica_campionati(List<String> lc,List<String> lb)
     {
     	

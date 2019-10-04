@@ -24,7 +24,7 @@ public class TestMetodi {
 	public static void main(String[] args) 
 	{
 
-		test_9();
+		test_13();
 		
 	}
 	
@@ -256,5 +256,23 @@ public class TestMetodi {
 		
 		System.out.println(data);
 	}
+	
+	/*
+	 * Test data
+	 */
+	public static void test_13()
+	{
+		String a = "-";
+		String[] result = a.split(" - ");
+		
+		if(result != null && result.length > 1)
+		{
+				if(result[0] != "")
+					System.out.println("result[0]");
+				if(result[1] != "")
+					System.out.println("result[1]");
+		}
+	}
+	
 	
 }
