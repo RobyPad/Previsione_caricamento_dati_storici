@@ -18,7 +18,8 @@ public class Inserimento_Campionati_DB
 	
     public static void caricaCampionati_HARD(List<String> lc,List<String> lb)
     {
-    	
+    	System.out.println("Avvio metodo: caricaCampionati_HARD");
+
     	EntityTransaction tx;
 		
 		WebScraper_listaPartite o = new WebScraper_listaPartite();		
@@ -72,6 +73,7 @@ public class Inserimento_Campionati_DB
 
     public static void caricaCampionati_SOFT(List<String> lc,List<String> lb)
     {
+    	System.out.println("Avvio metodo: caricaCampionati_SOFT");
     	
     	EntityTransaction tx;
 		

@@ -18,14 +18,17 @@ import com.roberto.WebScraper.WebScraper_listaPartite;
 
 import it.roberto.configurazione.Lista_Campionati;
 import it.roberto.model.Partita;
+import it.roberto.thread.Thread_InserimentoCampionati_AnnoInCorso;
 
 public class TestMetodi {
 
 	public static void main(String[] args) 
 	{
 
-		test_13();
+		test_14();
 		
+	    System.out.println("TEST chiuso");
+
 	}
 	
 	/*
@@ -258,5 +261,12 @@ public class TestMetodi {
 		}
 	}
 	
-	
+	public static void test_14()
+    { 
+		  Thread_InserimentoCampionati_AnnoInCorso R1 = new Thread_InserimentoCampionati_AnnoInCorso( "Thread-1");
+	      R1.start();
+	      
+	      Thread_InserimentoCampionati_AnnoInCorso R2 = new Thread_InserimentoCampionati_AnnoInCorso( "Thread-2");
+	      R2.start();
+    } 
 }
