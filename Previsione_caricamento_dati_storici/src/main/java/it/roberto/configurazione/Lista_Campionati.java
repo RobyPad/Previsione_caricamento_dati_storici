@@ -1,11 +1,11 @@
-package it.roberto.utils;
+package it.roberto.configurazione;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Campionati 
+public class Lista_Campionati 
 {
 	static String[] listaCampionati = 
 		{	
@@ -89,7 +89,7 @@ public class Campionati
 							,"//a[@href='/calcio/svizzera/super-league"
 							,"//a[@href='/calcio/turchia/super-lig"
 							,"//a[@href='/calcio/ucraina/premier-league"
-							,"//a[@href='/calcio/ungheria/otp-bank-liga"						
+							,"//a[@href='/calcio/ungheria/otp-bank-liga"					
 		};
 	
 	static String[] listaBottoniCampionati_anno_singolo = 
@@ -105,9 +105,9 @@ public class Campionati
 							,"//a[@href='/calcio/svezia/allsvenskan"	
 		};
 
-	public static List<String> getCampionati_Attuali()
+	public static List<String> getCampionati_AnnoInCorso()
 	{
-		List<String> listaCampionati_a_CinqueAnni = new ArrayList<>(); 
+		List<String> listaCampionati_AnnoInCorso = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
 
 		int anno = gc.get(Calendar.YEAR);
@@ -116,77 +116,53 @@ public class Campionati
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
 		
 		for(int i= 0; i < listaCampionati.length; i++)
-		{
-			
+		{	
 			String campionato = listaCampionati[i];
 			String campionatoTemp_0;
 
-			
 			if(mese>5)
-			{
 				campionatoTemp_0 = campionato + anno + "-" + (anno+1);
-
-			}
 			else
-			{
 				campionatoTemp_0 = campionato + (anno-1) + "-" + anno;
-
-			}
-					
-			listaCampionati_a_CinqueAnni.add(campionatoTemp_0);
-			
+		
+			listaCampionati_AnnoInCorso.add(campionatoTemp_0);	
 		}
 
-		
-		
 		/*
 		 * result example:	"https://www.diretta.it/serie-a-2016-2017/",
 		 */
-		return listaCampionati_a_CinqueAnni;
+		return listaCampionati_AnnoInCorso;
 	}
 		
-	public static List<String> getBottoni_Attuali()
+	public static List<String> getBottoni_AnnoInCorso()
 	{
-		List<String> listaBottoni_a_CinqueAnni = new ArrayList<>(); 
+		List<String> listaCampionati_AnnoInCorso = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
 		int anno = gc.get(Calendar.YEAR);
 		int mese = (gc.get(Calendar.MONTH))+1 ;
 		@SuppressWarnings("unused")
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
-		
-		/*
-		System.out.println("Giorno: " + giorno );
-		System.out.println("Mese: " + mese );
-		System.out.println("Anno: " + anno);
-		*/
-		
+
 		for(int i= 0; i < listaBottoniCampionati.length; i++)
 		{
-			
 			String bottoneCamp = listaBottoniCampionati[i];
 			String bottoneCampTemp_0;
 			
 			if(mese>5)
-			{
 				bottoneCampTemp_0 = bottoneCamp + "/risultati/']";
-			}
 			else
-			{
 				bottoneCampTemp_0 = bottoneCamp + (anno-1) + "-" + anno + "/risultati/']";
-
-			}
-			
-			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_0);
-			
+	
+			listaCampionati_AnnoInCorso.add(bottoneCampTemp_0);			
 		}
 		
 		/*
 		 * result example:	"//a[@href='/serie-a-2016-2017/risultati/']",
 		 */
-		return listaBottoni_a_CinqueAnni;
+		return listaCampionati_AnnoInCorso;
 	}
 			
-	public static List<String> getCampionati_HISTORY()
+	public static List<String> getCampionati_UltimiCinqueAnni()
 	{
 		List<String> listaCampionati_a_CinqueAnni = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
@@ -195,12 +171,6 @@ public class Campionati
 		int mese = (gc.get(Calendar.MONTH))+1 ;
 		@SuppressWarnings("unused")
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
-		
-		/*
-		System.out.println("Giorno: " + giorno );
-		System.out.println("Mese: " + mese );
-		System.out.println("Anno: " + anno);
-		*/
 		
 		for(int i= 0; i < listaCampionati.length; i++)
 		{
@@ -238,15 +208,13 @@ public class Campionati
 			
 		}
 
-		
-		
 		/*
 		 * result example:	"https://www.diretta.it/serie-a-2016-2017/",
 		 */
 		return listaCampionati_a_CinqueAnni;
 	}
 	
-	public static List<String> getBottoni_HISTORY()
+	public static List<String> getBottoni_UltimiCinqueAnni()
 	{
 		List<String> listaBottoni_a_CinqueAnni = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
@@ -254,12 +222,6 @@ public class Campionati
 		int mese = (gc.get(Calendar.MONTH))+1 ;
 		@SuppressWarnings("unused")
 		int giorno = gc.get(Calendar.DAY_OF_MONTH);
-		
-		/*
-		System.out.println("Giorno: " + giorno );
-		System.out.println("Mese: " + mese );
-		System.out.println("Anno: " + anno);
-		*/
 		
 		for(int i= 0; i < listaBottoniCampionati.length; i++)
 		{
@@ -293,8 +255,7 @@ public class Campionati
 			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_2);
 			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_3);
 			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_4);
-			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_5);
-			
+			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_5);	
 		}
 		
 		/*
@@ -303,98 +264,7 @@ public class Campionati
 		return listaBottoni_a_CinqueAnni;
 	}
 
-	public static List<String> getCampionati_MOSTRA_PIU_INCONTRI()
-	{
-		List<String> listaCampionati_a_CinqueAnni = new ArrayList<>(); 
-		GregorianCalendar gc = new GregorianCalendar();
-
-		int anno = gc.get(Calendar.YEAR);
-		int mese = (gc.get(Calendar.MONTH))+1 ;
-		@SuppressWarnings("unused")
-		int giorno = gc.get(Calendar.DAY_OF_MONTH);
-		
-		/*
-		System.out.println("Giorno: " + giorno );
-		System.out.println("Mese: " + mese );
-		System.out.println("Anno: " + anno);
-		*/
-		
-		for(int i= 0; i < listaCampionati.length; i++)
-		{
-			
-			String campionato = listaCampionati[i];
-			String campionatoTemp_1;
-
-			
-			if(mese>5)
-			{
-				campionatoTemp_1 = campionato + (anno-1) + "-" + anno;
-
-			}
-			else
-			{
-				campionatoTemp_1 = campionato + (anno-2) + "-" + (anno-1);
-
-			}
-			
-			
-			listaCampionati_a_CinqueAnni.add(campionatoTemp_1);
-
-			
-		}
-
-		
-		
-		/*
-		 * result example:	"https://www.diretta.it/serie-a-2016-2017/",
-		 */
-		return listaCampionati_a_CinqueAnni;
-	}
-
-	public static List<String> getBottoni_MOSTRA_PIU_INCONTRI()
-	{
-		List<String> listaBottoni_a_CinqueAnni = new ArrayList<>(); 
-		GregorianCalendar gc = new GregorianCalendar();
-		int anno = gc.get(Calendar.YEAR);
-		int mese = (gc.get(Calendar.MONTH))+1 ;
-		@SuppressWarnings("unused")
-		int giorno = gc.get(Calendar.DAY_OF_MONTH);
-		
-		/*
-		System.out.println("Giorno: " + giorno );
-		System.out.println("Mese: " + mese );
-		System.out.println("Anno: " + anno);
-		*/
-		
-		for(int i= 0; i < listaBottoniCampionati.length; i++)
-		{
-			
-			String bottoneCamp = listaBottoniCampionati[i];
-			String bottoneCampTemp_1;
-			
-			if(mese>5)
-			{
-				bottoneCampTemp_1 = bottoneCamp + "-" + (anno-1) + "-" + anno + "/risultati/']";
-
-			}
-			else
-			{
-				bottoneCampTemp_1 = bottoneCamp +  "-" + (anno-2) + "-" + (anno-1) + "/risultati/']";
-
-			}
-			
-			
-			listaBottoni_a_CinqueAnni.add(bottoneCampTemp_1);
-			
-		}
-		
-		/*
-		 * result example:	"//a[@href='/serie-a-2016-2017/risultati/']",
-		 */
-		return listaBottoni_a_CinqueAnni;
-	}
-
-	public static List<String> getCampionati_Anno_Singolo_Attuali()
+	public static List<String> getCampionati_AnnoSingolo_AnnoInCorso()
 	{
 		List<String> listaCampionati_anno_singolo_attuali = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
@@ -420,7 +290,7 @@ public class Campionati
 		return listaCampionati_anno_singolo_attuali;
 	}
 	
-	public static List<String> getBottoni_Anno_Singolo_Attuali()
+	public static List<String> getBottoni_AnnoSingolo_AnnoInCorso()
 	{
 		List<String> listaBottoni_anno_singolo_attuali = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
@@ -448,7 +318,7 @@ public class Campionati
 		return listaBottoni_anno_singolo_attuali;
 	}
 
-	public static List<String> getCampionati_Anno_Singolo_HISTORY()
+	public static List<String> getCampionati_AnnoSingolo_UltimiCinqueAnni()
 	{
 		List<String> listaCampionati_Anno_Singolo_a_CinqueAnni = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();
@@ -487,7 +357,7 @@ public class Campionati
 		return listaCampionati_Anno_Singolo_a_CinqueAnni;
 	}
 
-	public static List<String> getBottoni_Anno_Singolo_HISTORY()
+	public static List<String> getBottoni_AnnoSingolo_UltimiCinqueAnni()
 	{
 		List<String> listaBottoni_Anno_Singolo_a_CinqueAnni = new ArrayList<>(); 
 		GregorianCalendar gc = new GregorianCalendar();

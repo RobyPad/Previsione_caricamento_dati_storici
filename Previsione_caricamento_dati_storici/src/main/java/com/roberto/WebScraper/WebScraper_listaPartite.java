@@ -1,4 +1,4 @@
-package com.roberto.caricamento.dati;
+package com.roberto.WebScraper;
 
 
 import java.io.IOException;
@@ -24,14 +24,11 @@ import org.openqa.selenium.interactions.Actions;
 import it.roberto.model.Partita;
 
 
-public class CaricaPartite 
+public class WebScraper_listaPartite 
 {	
-	
-	
 	//final String pathDriverChrome = "C:\\Users\\Utente\\git\\Previsione_caricamento_dati_storici\\Previsione_caricamento_dati_storici\\risorseEsterne\\chromedriver_win32\\chromedriver.exe";
-	
-	
-	public CaricaPartite() 
+
+	public WebScraper_listaPartite() 
 	{
         Properties fileConfig = new Properties();
         InputStream inputStream = this.getClass().getResourceAsStream("/config.properties");
@@ -54,7 +51,7 @@ public class CaricaPartite
 
 	}
 
-	public List<Partita> caricaCampionati(List<String> campionati, List<String> bottoni) 
+	public List<Partita> getPartite_fromCampionati(List<String> campionati, List<String> bottoni) 
 	{
 		// Lista da ritornare
 		List<Partita> listaPartite = new ArrayList<Partita>();

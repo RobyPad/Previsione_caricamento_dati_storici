@@ -1,4 +1,4 @@
-package it.roberto.Previsione_caricamento_dati_storici;
+package it.roberto.test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,10 +14,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
-import com.roberto.caricamento.dati.CaricaPartite;
+import com.roberto.WebScraper.WebScraper_listaPartite;
 
+import it.roberto.configurazione.Lista_Campionati;
 import it.roberto.model.Partita;
-import it.roberto.utils.Campionati;
 
 public class TestMetodi {
 
@@ -33,12 +33,12 @@ public class TestMetodi {
 	 */
 	public static void test_1()
 	{
-		List<String> lc = Campionati.getCampionati_Attuali();
+		List<String> lc = Lista_Campionati.getCampionati_AnnoInCorso();
 		
 		System.out.println(lc);
 
 		
-		List<String> lb = Campionati.getBottoni_Attuali();
+		List<String> lb = Lista_Campionati.getBottoni_AnnoInCorso();
 
 		System.out.println(lb);
 	}
@@ -48,12 +48,12 @@ public class TestMetodi {
 	 */
 	public static void test_2()
 	{
-		List<String> lc = Campionati.getCampionati_Attuali();
-		List<String> lb = Campionati.getBottoni_Attuali();
+		List<String> lc = Lista_Campionati.getCampionati_AnnoInCorso();
+		List<String> lb = Lista_Campionati.getBottoni_AnnoInCorso();
 
-		CaricaPartite o = new CaricaPartite();
+		WebScraper_listaPartite o = new WebScraper_listaPartite();
 		
-		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		List<Partita> listaPartite = o.getPartite_fromCampionati(lc, lb);
 
 		System.out.println(listaPartite);
 		
@@ -64,12 +64,12 @@ public class TestMetodi {
 	 */
 	public static void test_3()
 	{
-		List<String> lc = Campionati.getCampionati_HISTORY();
-		List<String> lb = Campionati.getBottoni_HISTORY();
+		List<String> lc = Lista_Campionati.getCampionati_UltimiCinqueAnni();
+		List<String> lb = Lista_Campionati.getBottoni_UltimiCinqueAnni();
 
-		CaricaPartite o = new CaricaPartite();
+		WebScraper_listaPartite o = new WebScraper_listaPartite();
 		
-		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		List<Partita> listaPartite = o.getPartite_fromCampionati(lc, lb);
 
 		System.out.println(listaPartite);
 		
@@ -98,7 +98,7 @@ public class TestMetodi {
 	 */
 	public static void test_5()
 	{
-		new CaricaPartite();
+		new WebScraper_listaPartite();
 	}
 	
 	/*
@@ -163,22 +163,6 @@ public class TestMetodi {
 
 		
 	}
-	
-	/*
-	 * verifica Bottone "mostra più incontri"
-	 */
-	public static void test_7()
-	{
-		
-    	List<String> lc = Campionati.getCampionati_MOSTRA_PIU_INCONTRI();
-    	List<String> lb = Campionati.getBottoni_MOSTRA_PIU_INCONTRI();
-		
-		CaricaPartite o = new CaricaPartite();		
-		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
-		
-		System.out.println(listaPartite);
-		
-	}
 
 	/*
 	 * verifica LISTA Campionati Anno singolo Attuale
@@ -186,8 +170,8 @@ public class TestMetodi {
 	public static void test_8()
 	{
 		
-    	List<String> lc = Campionati.getCampionati_Anno_Singolo_Attuali();
-    	List<String> lb = Campionati.getBottoni_Anno_Singolo_Attuali();
+    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
+    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
 		
 		System.out.println(lc);
 		System.out.println(lb);
@@ -200,8 +184,8 @@ public class TestMetodi {
 	public static void test_9()
 	{
 		
-    	List<String> lc = Campionati.getCampionati_Anno_Singolo_HISTORY();
-    	List<String> lb = Campionati.getBottoni_Anno_Singolo_HISTORY();
+    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
+    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
 		
 		System.out.println(lc);
 		System.out.println(lb);
@@ -214,11 +198,11 @@ public class TestMetodi {
 	public static void test_10()
 	{
 		
-    	List<String> lc = Campionati.getCampionati_Anno_Singolo_Attuali();
-    	List<String> lb = Campionati.getBottoni_Anno_Singolo_Attuali();
+    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
+    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
 		
-		CaricaPartite o = new CaricaPartite();		
-		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		WebScraper_listaPartite o = new WebScraper_listaPartite();		
+		List<Partita> listaPartite = o.getPartite_fromCampionati(lc, lb);
 		
 		System.out.println(listaPartite);
 		
@@ -230,11 +214,11 @@ public class TestMetodi {
 	public static void test_11()
 	{
 		
-    	List<String> lc = Campionati.getCampionati_Anno_Singolo_HISTORY();
-    	List<String> lb = Campionati.getBottoni_Anno_Singolo_HISTORY();
+    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
+    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
 		
-		CaricaPartite o = new CaricaPartite();		
-		List<Partita> listaPartite = o.caricaCampionati(lc, lb);
+		WebScraper_listaPartite o = new WebScraper_listaPartite();		
+		List<Partita> listaPartite = o.getPartite_fromCampionati(lc, lb);
 		
 		System.out.println(listaPartite);
 		

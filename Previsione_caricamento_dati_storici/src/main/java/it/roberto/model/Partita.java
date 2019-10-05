@@ -15,12 +15,6 @@ import javax.persistence.Table;
 
 public class Partita 
 {
-	/*
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	*/
-	
 	@Id
 	private String id;
 	@Column(name = "nazione")
@@ -48,13 +42,8 @@ public class Partita
 	@Column(name = "data_aggiornamento_record")
 	private Date dataAggiornamentoRecord;	
 	
-	
-	
 	public Partita() { }
 	
-
-
-
 	public Partita(String id, String nazione, String tipoCompetizione, String turnoCompetizione, String annata,
 			String data, String ora, String squadraCasa, int goalCasa, String squadraTrasferta, int goalTrasferta,
 			String risultato, Date dataAggiornamentoRecord) {
@@ -168,17 +157,4 @@ public class Partita
 				+ dataAggiornamentoRecord + "]";
 	}
 
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
 }
