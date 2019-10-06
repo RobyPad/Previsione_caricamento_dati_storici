@@ -19,7 +19,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import it.roberto.object.Info_WebScraper_Campionati;
+import it.roberto.WebScraper.object.Info_WebScraper_Campionati;
 
 public class Lista_Campionati 
 {

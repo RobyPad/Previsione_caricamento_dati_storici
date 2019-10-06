@@ -9,8 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
-import com.roberto.WebScraper.WebScraper_listaPartite;
-
+import it.roberto.WebScraper.WebScraper_listaPartite;
 import it.roberto.model.Partita;
 
 public class Inserimento_Campionati_DB 

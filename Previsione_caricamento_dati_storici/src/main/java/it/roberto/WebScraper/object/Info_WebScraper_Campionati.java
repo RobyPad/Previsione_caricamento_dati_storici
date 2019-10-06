@@ -1,4 +1,4 @@
-package it.roberto.object;
+package it.roberto.WebScraper.object;
 
 import java.util.List;
 

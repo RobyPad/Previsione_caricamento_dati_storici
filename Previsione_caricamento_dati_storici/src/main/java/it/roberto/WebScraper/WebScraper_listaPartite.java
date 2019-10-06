@@ -1,4 +1,4 @@
-package com.roberto.WebScraper;
+package it.roberto.WebScraper;
 
 
 import java.io.IOException;

@@ -1,4 +1,5 @@
 /application.properties
-/chromedriver_win32/
-/files/
+/.gitignore
 /META-INF/
+/config.properties
+/it/
