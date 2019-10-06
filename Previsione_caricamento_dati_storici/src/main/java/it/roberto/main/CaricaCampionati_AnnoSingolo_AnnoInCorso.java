@@ -18,8 +18,10 @@ public class CaricaCampionati_AnnoSingolo_AnnoInCorso
     	Date data_inizio =  new Date();
     	System.out.println("INIZIO - getCampionati_AnnoSingolo_AnnoInCorso - ORA: " +  data_inizio);
     	
-    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
-    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+    	List<String> lc = lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
+    	List<String> lb = lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
     	
     	//Inserimento_Campionati_DB.caricaCampionati_HARD(lc, lb);
     	

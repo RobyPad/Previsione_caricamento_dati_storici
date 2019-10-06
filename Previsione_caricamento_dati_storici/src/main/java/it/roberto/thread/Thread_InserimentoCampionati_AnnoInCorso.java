@@ -21,8 +21,10 @@ public class Thread_InserimentoCampionati_AnnoInCorso implements Runnable
 	   {
 		  System.out.println("Running " +  threadName );
 	      
-		  List<String> lc = Lista_Campionati.getCampionati_AnnoInCorso();
-		  List<String> lb = Lista_Campionati.getBottoni_AnnoInCorso();	
+	      Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+		  List<String> lc = lista_Campionati.getCampionati_AnnoInCorso();
+		  List<String> lb = lista_Campionati.getBottoni_AnnoInCorso();	
 	    	
 		  Inserimento_Campionati_DB.caricaCampionati_SOFT(lc, lb);
    

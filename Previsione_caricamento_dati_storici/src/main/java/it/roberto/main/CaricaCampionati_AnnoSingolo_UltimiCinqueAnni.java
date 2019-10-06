@@ -18,8 +18,10 @@ public class CaricaCampionati_AnnoSingolo_UltimiCinqueAnni
     	Date data_inizio =  new Date();
     	System.out.println("INIZIO - getCampionati_AnnoSingolo_UltimiCinqueAnni - ORA: " +  data_inizio);
     	
-    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
-    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+    	List<String> lc = lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
+    	List<String> lb = lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
     	
     	//Inserimento_Campionati_DB.caricaCampionati_HARD(lc, lb);
     	

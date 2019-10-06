@@ -21,8 +21,10 @@ public class Thread_InserimentoCampionati_AnnoSingolo_AnnoInCorso implements Run
 	   {
 		   	System.out.println("Running " +  threadName );
 	      
-	    	List<String> lc_2 = Lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
-	    	List<String> lb_2 = Lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
+		    Lista_Campionati lista_Campionati = new Lista_Campionati();
+		  	
+	    	List<String> lc_2 = lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
+	    	List<String> lb_2 = lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
 	    	
 	    	Inserimento_Campionati_DB.caricaCampionati_SOFT(lc_2, lb_2);
 

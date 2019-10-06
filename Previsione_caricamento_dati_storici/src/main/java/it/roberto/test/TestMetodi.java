@@ -25,7 +25,9 @@ public class TestMetodi {
 	public static void main(String[] args) 
 	{
 
-		test_14();
+		//new Test_config();
+		
+		test_1();
 		
 	    System.out.println("TEST chiuso");
 
@@ -36,12 +38,14 @@ public class TestMetodi {
 	 */
 	public static void test_1()
 	{
-		List<String> lc = Lista_Campionati.getCampionati_AnnoInCorso();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+		List<String> lc = lista_Campionati.getCampionati_AnnoInCorso();
 		
 		System.out.println(lc);
 
 		
-		List<String> lb = Lista_Campionati.getBottoni_AnnoInCorso();
+		List<String> lb = lista_Campionati.getBottoni_AnnoInCorso();
 
 		System.out.println(lb);
 	}
@@ -51,8 +55,10 @@ public class TestMetodi {
 	 */
 	public static void test_2()
 	{
-		List<String> lc = Lista_Campionati.getCampionati_AnnoInCorso();
-		List<String> lb = Lista_Campionati.getBottoni_AnnoInCorso();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+		List<String> lc = lista_Campionati.getCampionati_AnnoInCorso();
+		List<String> lb = lista_Campionati.getBottoni_AnnoInCorso();
 
 		WebScraper_listaPartite o = new WebScraper_listaPartite();
 		
@@ -67,8 +73,10 @@ public class TestMetodi {
 	 */
 	public static void test_3()
 	{
-		List<String> lc = Lista_Campionati.getCampionati_UltimiCinqueAnni();
-		List<String> lb = Lista_Campionati.getBottoni_UltimiCinqueAnni();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+		List<String> lc = lista_Campionati.getCampionati_UltimiCinqueAnni();
+		List<String> lb = lista_Campionati.getBottoni_UltimiCinqueAnni();
 
 		WebScraper_listaPartite o = new WebScraper_listaPartite();
 		
@@ -172,9 +180,10 @@ public class TestMetodi {
 	 */
 	public static void test_8()
 	{
-		
-    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
-    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+    	List<String> lc = lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
+    	List<String> lb = lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
 		
 		System.out.println(lc);
 		System.out.println(lb);
@@ -186,9 +195,10 @@ public class TestMetodi {
 	 */
 	public static void test_9()
 	{
-		
-    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
-    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+    	List<String> lc = lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
+    	List<String> lb = lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
 		
 		System.out.println(lc);
 		System.out.println(lb);
@@ -200,9 +210,10 @@ public class TestMetodi {
 	 */
 	public static void test_10()
 	{
-		
-    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
-    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+    	List<String> lc = lista_Campionati.getCampionati_AnnoSingolo_AnnoInCorso();
+    	List<String> lb = lista_Campionati.getBottoni_AnnoSingolo_AnnoInCorso();
 		
 		WebScraper_listaPartite o = new WebScraper_listaPartite();		
 		List<Partita> listaPartite = o.getPartite_fromCampionati(lc, lb);
@@ -216,9 +227,10 @@ public class TestMetodi {
 	 */
 	public static void test_11()
 	{
-		
-    	List<String> lc = Lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
-    	List<String> lb = Lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
+    	Lista_Campionati lista_Campionati = new Lista_Campionati();
+
+    	List<String> lc = lista_Campionati.getCampionati_AnnoSingolo_UltimiCinqueAnni();
+    	List<String> lb = lista_Campionati.getBottoni_AnnoSingolo_UltimiCinqueAnni();
 		
 		WebScraper_listaPartite o = new WebScraper_listaPartite();		
 		List<Partita> listaPartite = o.getPartite_fromCampionati(lc, lb);
@@ -269,4 +281,11 @@ public class TestMetodi {
 	      Thread_InserimentoCampionati_AnnoInCorso R2 = new Thread_InserimentoCampionati_AnnoInCorso( "Thread-2");
 	      R2.start();
     } 
+	
+	public static void test_15()
+	{
+
+		
+	}
+	
 }
