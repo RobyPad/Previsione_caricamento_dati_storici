@@ -14,6 +14,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+import org.apache.log4j.Logger;
+
 import it.roberto.WebScraper.WebScraper_listaPartite;
 import it.roberto.configurazione.Lista_Campionati;
 import it.roberto.model.Partita;
@@ -26,7 +28,7 @@ public class TestMetodi {
 
 		//new Test_config();
 		
-		test_1();
+		test_15();
 		
 	    System.out.println("TEST chiuso");
 
@@ -283,8 +285,11 @@ public class TestMetodi {
 	
 	public static void test_15()
 	{
-
+    	Logger logger = Logger.getLogger(TestMetodi.class);
+    	
+    	logger.info("-------------------------------test_15 ");
 		
+    	System.out.println("Syso-------------------------------test_15");
 	}
 	
 }

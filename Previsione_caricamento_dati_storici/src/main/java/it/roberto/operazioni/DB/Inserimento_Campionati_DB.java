@@ -9,6 +9,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+import org.hibernate.internal.ExceptionMapperStandardImpl;
+
 import it.roberto.WebScraper.WebScraper_listaPartite;
 import it.roberto.model.Partita;
 
@@ -105,6 +107,10 @@ public class Inserimento_Campionati_DB
 			catch (PersistenceException e2) 
 			{		
 				System.out.println("PersistenceException " + partita);
+			}
+			catch (Exception e3) 
+			{		
+				System.out.println("Exception " + partita);
 			}
 		}
 		

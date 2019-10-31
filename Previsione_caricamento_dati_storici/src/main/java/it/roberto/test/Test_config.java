@@ -20,13 +20,15 @@ import it.roberto.WebScraper.object.Info_WebScraper_Campionati;
 
 public class Test_config 
 {
+	
 	public Test_config() 
 	{
         Properties fileConfig = new Properties();
         //InputStream inputStream = this.getClass().getResourceAsStream("/config.properties");
       
         InputStream inputStream = getClass().getResourceAsStream("/config.properties");
-                
+        
+        @SuppressWarnings("unused")
         Info_WebScraper_Campionati info_WebScraper_Campionati; 
         
     	List<String> URL_campionati = new LinkedList<String>();
